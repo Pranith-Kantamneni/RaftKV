@@ -1,0 +1,60 @@
+ Image raftkv-controller:1.0.0 Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 621B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile.backend
+#2 transferring dockerfile: 983B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.12-slim
+#3 DONE 7.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 263B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 DONE 0.0s
+
+#6 [1/7] FROM docker.io/library/python:3.12-slim@sha256:aa943ce411423c7582288f18707ff66eddcbaeb510502d747a72aeb34f30d159
+#6 resolve docker.io/library/python:3.12-slim@sha256:aa943ce411423c7582288f18707ff66eddcbaeb510502d747a72aeb34f30d159 0.1s done
+#6 DONE 0.1s
+
+#5 [internal] load build context
+#5 transferring context: 265.76kB 0.0s done
+#5 DONE 0.0s
+
+#7 [2/7] WORKDIR /app
+#7 CACHED
+
+#8 [3/7] RUN apt-get update     && apt-get install -y --no-install-recommends tini     && rm -rf /var/lib/apt/lists/*
+#8 CACHED
+
+#9 [4/7] COPY requirements.txt pyproject.toml ./
+#9 CACHED
+
+#10 [5/7] RUN pip install --no-cache-dir -r requirements.txt
+#10 CACHED
+
+#11 [6/7] COPY backend ./backend
+#11 DONE 0.1s
+
+#12 [7/7] RUN mkdir -p /data
+#12 DONE 0.3s
+
+#13 exporting to image
+#13 exporting layers
+#13 exporting layers 0.3s done
+#13 exporting manifest sha256:28a80c67b28bab6a1a0de7d93e0ea803b77b12f3b481a29a7921c58938e82f9d 0.0s done
+#13 exporting config sha256:746dd69ba5b8ed0af6640024dfdb1368d43fe83efeb47f0c26c7f5c42ec86e7a 0.0s done
+#13 exporting attestation manifest sha256:048ff5456020a2f5cce017213ac454743a3cb410161db8398832dc539aafb821 0.1s done
+#13 exporting manifest list sha256:e2326ce6c6b0852e125455d592a697435ff21e67ce755ec37b3f2fa3fef0d574
+#13 exporting manifest list sha256:e2326ce6c6b0852e125455d592a697435ff21e67ce755ec37b3f2fa3fef0d574 0.0s done
+#13 naming to docker.io/library/raftkv-controller:1.0.0 done
+#13 unpacking to docker.io/library/raftkv-controller:1.0.0 0.1s done
+#13 DONE 0.6s
+
+#14 resolving provenance for metadata file
+#14 DONE 0.0s
+ Image raftkv-controller:1.0.0 Built 

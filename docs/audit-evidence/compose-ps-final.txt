@@ -1,0 +1,4 @@
+NAME                IMAGE                     COMMAND                  SERVICE      CREATED              STATUS                        PORTS
+raftkv-controller   raftkv-controller:1.0.0   "/usr/bin/tini -- py…"   controller   About a minute ago   Up About a minute (healthy)   127.0.0.1:7001-7005->7001-7005/tcp, 127.0.0.1:7101-7105->7101-7105/tcp, 127.0.0.1:8000->8000/tcp
+raftkv-dashboard    raftkv-dashboard:1.0.0    "/docker-entrypoint.…"   dashboard    14 minutes ago       Up 13 minutes (healthy)       127.0.0.1:8080->80/tcp
+raftkv-prometheus   prom/prometheus:v2.55.1   "/bin/prometheus --c…"   prometheus   26 minutes ago       Up 26 minutes                 127.0.0.1:9090->9090/tcp

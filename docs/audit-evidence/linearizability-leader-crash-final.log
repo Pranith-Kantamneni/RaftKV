@@ -1,0 +1,23 @@
+SIGKILL n1 (pid 154109)
+{"scenario": "linearizability_leader_crash", "passed": true, "error": null}
+{
+  "scenario": "linearizability_leader_crash",
+  "cluster_size": 3,
+  "started": true,
+  "old_leader": "n1",
+  "new_leader": "n3",
+  "writes": 242,
+  "reads": 319,
+  "read_failures": 4,
+  "errors": [
+    "writer 0: no leader available",
+    "writer 1: no leader available",
+    "writer 0: no leader available",
+    "writer 1: no leader available",
+    "writer 0: no leader available"
+  ],
+  "linearizable": true,
+  "detail": "linearizable under the committed write order",
+  "error": null,
+  "passed": true
+}

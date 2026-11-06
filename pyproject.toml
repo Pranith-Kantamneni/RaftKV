@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "raft-kv-simulator"
+version = "1.0.0"
+description = "Raft key-value store with a real distributed failure simulator"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.34",
+  "httpx>=0.28",
+  "pydantic>=2.10",
+  "prometheus-client>=0.21",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8.3", "pytest-asyncio>=0.25"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["backend/tests"]
+addopts = "-ra"
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.setuptools]
+packages = ["backend", "backend.raft", "backend.api", "backend.simulator", "backend.monitoring", "backend.tests"]

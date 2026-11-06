@@ -1,0 +1,54 @@
+This is ApacheBench, Version 2.3 <$Revision: 1934973 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)
+Completed 200 requests
+Completed 400 requests
+Completed 600 requests
+Completed 800 requests
+Completed 1000 requests
+Completed 1200 requests
+Completed 1400 requests
+Completed 1600 requests
+Completed 1800 requests
+Completed 2000 requests
+Finished 2000 requests
+
+
+Server Software:        uvicorn
+Server Hostname:        127.0.0.1
+Server Port:            18000
+
+Document Path:          /api/kv/read-audit
+Document Length:        113 bytes
+
+Concurrency Level:      50
+Time taken for tests:   2.735 seconds
+Complete requests:      2000
+Failed requests:        0
+Keep-Alive requests:    0
+Total transferred:      478000 bytes
+HTML transferred:       226000 bytes
+Requests per second:    731.33 [#/sec] (mean)
+Time per request:       68.368 [ms] (mean)
+Time per request:       1.367 [ms] (mean, across all concurrent requests)
+Transfer rate:          170.69 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.2      0       2
+Processing:    14   67  15.1     67     201
+Waiting:       13   67  15.1     66     200
+Total:         14   67  15.1     67     201
+
+Percentage of the requests served within a certain time (ms)
+  50%     67
+  66%     70
+  75%     72
+  80%     73
+  90%     77
+  95%     87
+  98%     97
+  99%    132
+ 100%    201 (longest request)

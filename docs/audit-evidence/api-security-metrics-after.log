@@ -1,0 +1,43 @@
+SIGKILL n2 (pid 136232)
+{
+  "leader": "n1",
+  "write_status": 200,
+  "read": [
+    200,
+    {
+      "key": "metric-key",
+      "value": "v",
+      "exists": true,
+      "index": 2,
+      "commit_index": 2,
+      "term": 1,
+      "read_mode": "read-index"
+    }
+  ],
+  "cors_preflight_status": 405,
+  "cors_allow_origin": null,
+  "long_key_status": 422,
+  "oversize_value_status": 422,
+  "metrics_status": 200,
+  "has_counter_type": true,
+  "has_failed_rpc_metric": true,
+  "has_election_metric": true,
+  "has_network_metric": true,
+  "throughput_help_ok": true,
+  "totals": {
+    "successful_ops": 1,
+    "failed_ops": 0
+  },
+  "crashed_node": "n2",
+  "crashed_node_up_line": "raft_node_up{node=\"n2\"} 0.0",
+  "sample_metric_lines": [
+    "raft_node_rpc_failed{node=\"n1\"} 9.0",
+    "raft_node_rpc_failed{node=\"n2\"} 0.0",
+    "raft_node_rpc_failed{node=\"n3\"} 0.0",
+    "raft_node_elections_started{node=\"n1\"} 1.0",
+    "raft_node_elections_started{node=\"n2\"} 0.0",
+    "raft_node_elections_started{node=\"n3\"} 0.0",
+    "raft_client_successful_writes_total 1.0",
+    "raft_network_forwarded_messages 18.0"
+  ]
+}

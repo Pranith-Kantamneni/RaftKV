@@ -1,0 +1,206 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-console-950 text-console-200 font-sans antialiased;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #263543 transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #263543;
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::selection {
+  background: rgba(34, 211, 238, 0.25);
+}
+
+@layer components {
+  .panel {
+    @apply rounded-lg border border-console-700/70 bg-console-900 shadow-panel;
+  }
+
+  .panel-header {
+    @apply flex items-center justify-between gap-3 border-b border-console-700/60 px-4 py-3;
+  }
+
+  .panel-title {
+    @apply text-[11px] font-semibold uppercase tracking-[0.16em] text-console-300;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-console-600 bg-console-800 px-3 py-2 text-xs font-medium text-console-100 transition-colors hover:border-console-500 hover:bg-console-700 disabled:cursor-not-allowed disabled:opacity-40;
+  }
+
+  .btn-primary {
+    @apply border-accent-500/50 bg-accent-500/10 text-accent-300 hover:border-accent-400 hover:bg-accent-500/15;
+  }
+
+  .btn-danger {
+    @apply border-signal-red/40 bg-signal-red/10 text-signal-red hover:border-signal-red/70 hover:bg-signal-red/15;
+  }
+
+  .btn-ghost {
+    @apply border-transparent bg-transparent text-console-300 hover:border-console-600 hover:bg-console-800 hover:text-console-100;
+  }
+
+  .btn-xs {
+    @apply rounded px-2 py-1 text-[11px];
+  }
+
+  .input {
+    @apply w-full rounded-md border border-console-600 bg-console-950 px-3 py-2 text-sm text-console-100 placeholder:text-console-500 focus:border-accent-500/60 focus:outline-none focus:ring-1 focus:ring-accent-500/30;
+  }
+
+  .select {
+    @apply w-full appearance-none rounded-md border border-console-600 bg-console-950 px-3 py-2 pr-8 text-sm text-console-100 focus:border-accent-500/60 focus:outline-none focus:ring-1 focus:ring-accent-500/30;
+  }
+
+  .label {
+    @apply mb-1.5 block text-[11px] font-medium uppercase tracking-[0.12em] text-console-400;
+  }
+
+  .mono {
+    @apply font-mono tabular-nums;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider;
+  }
+
+  .chip-neutral {
+    @apply border-console-600 bg-console-800 text-console-300;
+  }
+
+  .chip-green {
+    @apply border-signal-green/30 bg-signal-green/10 text-signal-green;
+  }
+
+  .chip-amber {
+    @apply border-signal-amber/30 bg-signal-amber/10 text-signal-amber;
+  }
+
+  .chip-red {
+    @apply border-signal-red/30 bg-signal-red/10 text-signal-red;
+  }
+
+  .chip-cyan {
+    @apply border-accent-500/30 bg-accent-500/10 text-accent-300;
+  }
+
+  .chip-violet {
+    @apply border-signal-violet/30 bg-signal-violet/10 text-signal-violet;
+  }
+
+  .data-table {
+    @apply w-full border-collapse text-left text-xs;
+  }
+
+  .data-table thead th {
+    @apply border-b border-console-700/70 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-console-400;
+  }
+
+  .data-table tbody td {
+    @apply border-b border-console-800/70 px-3 py-2 align-middle text-console-200;
+  }
+
+  .data-table tbody tr:hover {
+    @apply bg-console-850/60;
+  }
+
+  .stat-card {
+    @apply panel relative overflow-hidden px-4 py-3;
+  }
+
+  .stat-label {
+    @apply text-[10px] font-semibold uppercase tracking-[0.14em] text-console-400;
+  }
+
+  .stat-value {
+    @apply mt-1 font-mono text-2xl font-semibold tracking-tight text-console-100;
+  }
+
+  .divider {
+    @apply border-t border-console-700/60;
+  }
+
+  .link {
+    @apply text-accent-300 underline-offset-4 transition-colors hover:text-accent-400 hover:underline;
+  }
+}
+
+@layer utilities {
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.react-flow__background {
+  background-color: #080b10;
+}
+
+.react-flow__edge-path {
+  stroke-width: 1.4;
+}
+
+.react-flow__edge.animated .react-flow__edge-path {
+  stroke-dasharray: 5;
+  animation-duration: 0.7s;
+}
+
+.react-flow__controls {
+  border: 1px solid #1b2733;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+.react-flow__controls-button {
+  background: #0c1118;
+  border-bottom: 1px solid #1b2733;
+  fill: #8ba0b2;
+}
+
+.react-flow__controls-button:hover {
+  background: #131c26;
+}
+
+.react-flow__attribution {
+  display: none;
+}
+
+.react-flow__node {
+  cursor: pointer;
+}
+
+.react-flow__handle {
+  opacity: 0;
+  pointer-events: none;
+}

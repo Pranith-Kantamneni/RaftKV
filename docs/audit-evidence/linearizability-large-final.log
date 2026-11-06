@@ -1,0 +1,13 @@
+{"scenario": "linearizability_large", "passed": true, "error": null}
+{
+  "scenario": "linearizability_large",
+  "cluster_size": 3,
+  "started": true,
+  "writes": 48,
+  "reads": 100,
+  "errors": [],
+  "linearizable": true,
+  "detail": "linearizable under the committed write order",
+  "error": null,
+  "passed": true
+}

@@ -1,0 +1,16 @@
+initial leader n1
+baseline committed {'committed': True, 'index': 2, 'term': 1, 'leader': 'n1', 'result': {'op': 'set', 'key': 'lease', 'value': 'old'}}
+leader acks {'n2': 4, 'n3': 5} term 1
+new leader n3 after 2.734
+new committed {'committed': True, 'index': 4, 'term': 2, 'leader': 'n3', 'result': {'op': 'set', 'key': 'lease', 'value': 'new'}}
+old read 0 503 {"detail":"leader could not confirm a fresh majority","leader":"n1"} at 2.954
+old read 1 503 {"detail":"leader could not confirm a fresh majority","leader":"n1"} at 3.212
+old read 2 503 {"detail":"leader could not confirm a fresh majority","leader":"n1"} at 3.472
+old read 3 503 {"detail":"leader could not confirm a fresh majority","leader":"n1"} at 3.733
+old read 4 503 {"detail":"leader could not confirm a fresh majority","leader":"n1"} at 3.992
+old read 5 503 {"detail":"leader could not confirm a fresh majority","leader":"n1"} at 4.248
+old read 6 503 {"detail":"leader could not confirm a fresh majority","leader":"n1"} at 4.504
+old read 7 503 {"detail":"leader could not confirm a fresh majority","leader":"n1"} at 4.765
+old read 8 503 {"detail":"leader could not confirm a fresh majority","leader":"n1"} at 5.023
+old read 9 503 {"detail":"leader could not confirm a fresh majority","leader":"n1"} at 5.283
+no stale read observed

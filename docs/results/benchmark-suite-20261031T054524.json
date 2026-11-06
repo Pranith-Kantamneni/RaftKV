@@ -1,0 +1,104 @@
+{
+  "config": {
+    "duration_s": 10.0,
+    "rate": 6.0,
+    "scenario": "benchmark_suite",
+    "scenarios": [
+      "normal",
+      "follower_down",
+      "leader_crash",
+      "latency",
+      "packet_loss",
+      "partition"
+    ]
+  },
+  "created_at": 1793425592745,
+  "hardware": {
+    "cpu_count": 16,
+    "machine": "x86_64",
+    "platform": "Linux",
+    "processor": "x86_64",
+    "python": "3.14.6",
+    "release": "7.1.3-201.fc44.x86_64"
+  },
+  "id": "benchmark-20261031T054524",
+  "kind": "benchmark",
+  "methodology": "Sequential execution of all six scenarios against the same cluster. Each scenario runs the client workload and fault injection described in its report. Reports are generated from live executions only.",
+  "outcome": "passed",
+  "report_ids": [
+    "benchmark-scenario-20261031T054524-e3e52e",
+    "benchmark-scenario-20261031T054536-626358",
+    "benchmark-scenario-20261031T054547-b7f663",
+    "benchmark-scenario-20261031T054558-3207bd",
+    "benchmark-scenario-20261031T054610-5299ad",
+    "benchmark-scenario-20261031T054621-36f98f"
+  ],
+  "scenarios": [
+    {
+      "consistency": true,
+      "outcome": "passed",
+      "p50_ms": 16.12,
+      "p95_ms": 23.77,
+      "p99_ms": 25.65,
+      "recovery_s": 0.0,
+      "scenario": "normal",
+      "throughput_ops_s": 4.95,
+      "write_failures": 0
+    },
+    {
+      "consistency": true,
+      "outcome": "passed",
+      "p50_ms": 16.24,
+      "p95_ms": 21.07,
+      "p99_ms": 21.57,
+      "recovery_s": 0.83,
+      "scenario": "follower_down",
+      "throughput_ops_s": 5.1,
+      "write_failures": 0
+    },
+    {
+      "consistency": true,
+      "outcome": "passed",
+      "p50_ms": 16.3,
+      "p95_ms": 22.61,
+      "p99_ms": 27.35,
+      "recovery_s": 0.98,
+      "scenario": "leader_crash",
+      "throughput_ops_s": 4.5,
+      "write_failures": 6
+    },
+    {
+      "consistency": true,
+      "outcome": "passed",
+      "p50_ms": 18.09,
+      "p95_ms": 425.26,
+      "p99_ms": 430.05,
+      "recovery_s": 0.0,
+      "scenario": "latency",
+      "throughput_ops_s": 4.95,
+      "write_failures": 0
+    },
+    {
+      "consistency": true,
+      "outcome": "passed",
+      "p50_ms": 20.04,
+      "p95_ms": 221.97,
+      "p99_ms": 222.74,
+      "recovery_s": 0.0,
+      "scenario": "packet_loss",
+      "throughput_ops_s": 5.1,
+      "write_failures": 0
+    },
+    {
+      "consistency": true,
+      "outcome": "passed",
+      "p50_ms": 15.87,
+      "p95_ms": 21.52,
+      "p99_ms": 22.08,
+      "recovery_s": 0.27,
+      "scenario": "partition",
+      "throughput_ops_s": 4.66,
+      "write_failures": 3
+    }
+  ]
+}

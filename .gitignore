@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+dist/
+build/
+
+# Runtime data (SQLite, snapshots, logs, experiment reports)
+data/
+*.db
+*.db-wal
+*.db-shm
+*.log
+
+# Release-audit evidence is intentionally tracked (explicit exception to the log ignore)
+!docs/audit-evidence/*.log
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/tsconfig.tsbuildinfo
+.vite/
+
+# Local environment / editors
+.env
+.env.local
+.DS_Store
+.idea/
+.vscode/
+
+# Playwright / screenshots
+screenshots/
+test-results/

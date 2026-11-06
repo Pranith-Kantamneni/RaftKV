@@ -1,0 +1,14 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Sun, 01 Nov 2026 05:54:36 GMT
+Content-Type: text/html
+Content-Length: 670
+Last-Modified: Sun, 01 Nov 2026 05:39:29 GMT
+Connection: keep-alive
+ETag: "6ae6d091-29e"
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+Referrer-Policy: no-referrer
+Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' ws: wss:; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'
+Accept-Ranges: bytes
+

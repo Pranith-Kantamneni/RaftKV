@@ -1,0 +1,4 @@
+before crash 2 1 2 1 {'k': 'old'} 0
+after restart reconcile (6, 3) applied (6, 3) snapshot (6, 3) kv {'k': 'new', 'only-in-snapshot': 'yes'} log_rows 0 history [{'idx': 6, 'term': 3, 'command_hash': 'c'}]
+EXPECTED {'k': 'new', 'only-in-snapshot': 'yes'} at applied 6 term 3
+OK

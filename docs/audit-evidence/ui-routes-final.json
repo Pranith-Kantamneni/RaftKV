@@ -1,0 +1,55 @@
+{
+  "base": "http://127.0.0.1:8080",
+  "routes": {
+    "/": {
+      "status": 200,
+      "title": "Raft KV // Cluster Console",
+      "h1": "Cluster overview",
+      "errors": [],
+      "body_head": "RAFT//KV\nCONSENSUS CONSOLE\nOBSERVE\nOverview\nLive cluster\nEvent timeline\nMetrics\nOPERATE\nFailure simulator\nKey-value store\nANALYZE\nExperiment reports\nCLUSTER\nHEALTHY\nleader\nn1\nterm\n10\nquorum\n3/3\nuptime\n22 s\ncontroller online\nCluster overview\nraft-kv / 3 nodes / fixed membership\nleader n1\nterm 10\nq 3/3\n11:22:47\nlive\nCluster overview\n\nLive Raft state sourced from every node process. Writes are acknowledged only after majority commit and local apply.\n\nSimulate failure\nOpen key-value\nA leader is elec"
+    },
+    "/cluster": {
+      "status": 200,
+      "title": "Raft KV // Cluster Console",
+      "h1": "Live cluster topology",
+      "errors": [],
+      "body_head": "RAFT//KV\nCONSENSUS CONSOLE\nOBSERVE\nOverview\nLive cluster\nEvent timeline\nMetrics\nOPERATE\nFailure simulator\nKey-value store\nANALYZE\nExperiment reports\nCLUSTER\nHEALTHY\nleader\nn1\nterm\n10\nquorum\n3/3\nuptime\n24 s\ncontroller online\nLive cluster\nraft-kv / 3 nodes / fixed membership\nleader n1\nterm 10\nq 3/3\n11:22:49\nlive\nLive cluster topology\n\nEach card is one independent node process. Traffic edges animate only when the controller observes real inter-node RPC events through the fault-injection mesh.\n\nFit "
+    },
+    "/simulator": {
+      "status": 200,
+      "title": "Raft KV // Cluster Console",
+      "h1": "Failure simulator",
+      "errors": [],
+      "body_head": "RAFT//KV\nCONSENSUS CONSOLE\nOBSERVE\nOverview\nLive cluster\nEvent timeline\nMetrics\nOPERATE\nFailure simulator\nKey-value store\nANALYZE\nExperiment reports\nCLUSTER\nHEALTHY\nleader\nn1\nterm\n10\nquorum\n3/3\nuptime\n25 s\ncontroller online\nFailure simulator\nraft-kv / 3 nodes / fixed membership\nleader n1\nterm 10\nq 3/3\n11:22:50\nlive\nFailure simulator\n\nFaults are injected into real processes and the HTTP mesh. Every crash is SIGKILL, every partition drops real RPCs, and the dashboard reads the resulting state from"
+    },
+    "/kv": {
+      "status": 200,
+      "title": "Raft KV // Cluster Console",
+      "h1": "Key-value store",
+      "errors": [],
+      "body_head": "RAFT//KV\nCONSENSUS CONSOLE\nOBSERVE\nOverview\nLive cluster\nEvent timeline\nMetrics\nOPERATE\nFailure simulator\nKey-value store\nANALYZE\nExperiment reports\nCLUSTER\nHEALTHY\nleader\nn1\nterm\n10\nquorum\n3/3\nuptime\n27 s\ncontroller online\nKey-value store\nraft-kv / 3 nodes / fixed membership\nleader n1\nterm 10\nq 3/3\n11:22:52\nlive\nKey-value store\n\nClient operations are sent to the controller, which forwards them only to the current Raft leader. A write response means the entry was committed by a majority and appl"
+    },
+    "/timeline": {
+      "status": 200,
+      "title": "Raft KV // Cluster Console",
+      "h1": "Event timeline",
+      "errors": [],
+      "body_head": "RAFT//KV\nCONSENSUS CONSOLE\nOBSERVE\nOverview\nLive cluster\nEvent timeline\nMetrics\nOPERATE\nFailure simulator\nKey-value store\nANALYZE\nExperiment reports\nCLUSTER\nHEALTHY\nleader\nn1\nterm\n10\nquorum\n3/3\nuptime\n29 s\ncontroller online\nEvent timeline\nraft-kv / 3 nodes / fixed membership\nleader n1\nterm 10\nq 3/3\n11:22:54\nlive\nEvent timeline\n\nStructured events emitted by real node elections, RPC transport, process supervision, client commits and experiment control. Expand an event to inspect its raw payload.\n\n"
+    },
+    "/metrics": {
+      "status": 200,
+      "title": "Raft KV // Cluster Console",
+      "h1": "Metrics & benchmarks",
+      "errors": [],
+      "body_head": "RAFT//KV\nCONSENSUS CONSOLE\nOBSERVE\nOverview\nLive cluster\nEvent timeline\nMetrics\nOPERATE\nFailure simulator\nKey-value store\nANALYZE\nExperiment reports\nCLUSTER\nHEALTHY\nleader\nn1\nterm\n10\nquorum\n3/3\nuptime\n31 s\ncontroller online\nMetrics & benchmarks\nraft-kv / 3 nodes / fixed membership\nleader n1\nterm 10\nq 3/3\n11:22:56\nlive\nMetrics & benchmarks\n\nOne-second samples from the controller, computed from live commit indexes and client-observed latencies. The benchmark executes the full six-scenario suite ag"
+    },
+    "/reports": {
+      "status": 200,
+      "title": "Raft KV // Cluster Console",
+      "h1": "Experiment reports",
+      "errors": [],
+      "body_head": "RAFT//KV\nCONSENSUS CONSOLE\nOBSERVE\nOverview\nLive cluster\nEvent timeline\nMetrics\nOPERATE\nFailure simulator\nKey-value store\nANALYZE\nExperiment reports\nCLUSTER\nHEALTHY\nleader\nn1\nterm\n10\nquorum\n3/3\nuptime\n33 s\ncontroller online\nExperiment reports\nraft-kv / 3 nodes / fixed membership\nleader n1\nterm 10\nq 3/3\n11:22:58\nlive\nExperiment reports\n\nEvery report is produced by executing a workload against live node processes while faults are injected. Reports include assertions, sampled Raft safety checks, re"
+    }
+  },
+  "errors": []
+}

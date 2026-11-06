@@ -1,0 +1,7 @@
+initial leader n1
+baseline committed {'committed': True, 'index': 2, 'term': 1, 'leader': 'n1', 'result': {'op': 'set', 'key': 'lease', 'value': 'old'}}
+leader acks {'n2': 2, 'n3': 4} term 1
+new leader n3 after 0.681
+new committed {'committed': True, 'index': 4, 'term': 2, 'leader': 'n3', 'result': {'op': 'set', 'key': 'lease', 'value': 'new'}}
+old read 0 200 {"key":"lease","value":"old","exists":true,"index":2,"commit_index":2,"term":1,"read_mode":"leader-lease"} at 0.692
+STALE_READ_REPRODUCED {'key': 'lease', 'value': 'old', 'exists': True, 'index': 2, 'commit_index': 2, 'term': 1, 'read_mode': 'leader-lease'}

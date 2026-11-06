@@ -1,0 +1,6 @@
+preflight 200 {'access-control-allow-origin': '*', 'access-control-allow-methods': 'DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT, QUERY', 'access-control-max-age': '600', 'access-control-allow-headers': 'content-type'}
+blank key 422 {"detail":[{"type":"string_too_short","loc":["body","key"],"msg":"String should have at least 1 character","input":"","ctx":{"min_length":1}}]}
+bad op 422 {"detail":[{"type":"string_pattern_mismatch","loc":["body","op"],"msg":"String should match pattern '^(set|delete)$'","input":"bad","ctx":{"pattern":"^(set|delete)$"}}]}
+long value 422 {"detail":[{"type":"string_too_long","loc":["body","value"],"msg":"String should have at most 100000 characters","input":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+long key read 200 {"key":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+metrics 200 # HELP raft_node_up Node process reachable

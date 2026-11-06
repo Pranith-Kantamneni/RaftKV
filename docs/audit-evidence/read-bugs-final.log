@@ -1,0 +1,2 @@
+READ_WITH_LAGGING_APPLY rejected in 1.002 s: local state machine did not catch up to the confirmed read index
+READ_AFTER_STEPDOWN rejected with NotLeaderError

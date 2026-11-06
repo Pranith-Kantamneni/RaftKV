@@ -1,0 +1,143 @@
+# HELP raft_node_up Node process reachable
+# TYPE raft_node_up gauge
+raft_node_up{node="n1"} 1.0
+raft_node_up{node="n2"} 1.0
+raft_node_up{node="n3"} 1.0
+# HELP raft_node_term Current Raft term
+# TYPE raft_node_term gauge
+raft_node_term{node="n1"} 1.0
+raft_node_term{node="n2"} 2.0
+raft_node_term{node="n3"} 2.0
+# HELP raft_node_commit_index Commit index
+# TYPE raft_node_commit_index gauge
+raft_node_commit_index{node="n1"} 1310.0
+raft_node_commit_index{node="n2"} 1311.0
+raft_node_commit_index{node="n3"} 1311.0
+# HELP raft_node_applied_index Applied index
+# TYPE raft_node_applied_index gauge
+raft_node_applied_index{node="n1"} 1310.0
+raft_node_applied_index{node="n2"} 1311.0
+raft_node_applied_index{node="n3"} 1311.0
+# HELP raft_node_last_log_index Last log index
+# TYPE raft_node_last_log_index gauge
+raft_node_last_log_index{node="n1"} 1310.0
+raft_node_last_log_index{node="n2"} 1311.0
+raft_node_last_log_index{node="n3"} 1311.0
+# HELP raft_node_snapshot_index Snapshot base index
+# TYPE raft_node_snapshot_index gauge
+raft_node_snapshot_index{node="n1"} 1280.0
+raft_node_snapshot_index{node="n2"} 1280.0
+raft_node_snapshot_index{node="n3"} 1280.0
+# HELP raft_node_is_leader 1 when this node is leader
+# TYPE raft_node_is_leader gauge
+raft_node_is_leader{node="n1"} 1.0
+raft_node_is_leader{node="n2"} 1.0
+raft_node_is_leader{node="n3"} 0.0
+# HELP raft_node_role 1 when the node currently has this role
+# TYPE raft_node_role gauge
+raft_node_role{node="n1",role="follower"} 0.0
+raft_node_role{node="n1",role="candidate"} 0.0
+raft_node_role{node="n1",role="leader"} 1.0
+raft_node_role{node="n1",role="offline"} 0.0
+raft_node_role{node="n2",role="follower"} 0.0
+raft_node_role{node="n2",role="candidate"} 0.0
+raft_node_role{node="n2",role="leader"} 1.0
+raft_node_role{node="n2",role="offline"} 0.0
+raft_node_role{node="n3",role="follower"} 1.0
+raft_node_role{node="n3",role="candidate"} 0.0
+raft_node_role{node="n3",role="leader"} 0.0
+raft_node_role{node="n3",role="offline"} 0.0
+# HELP raft_node_kv_keys Materialized keys
+# TYPE raft_node_kv_keys gauge
+raft_node_kv_keys{node="n1"} 837.0
+raft_node_kv_keys{node="n2"} 837.0
+raft_node_kv_keys{node="n3"} 837.0
+# HELP raft_node_rpc_sent RPCs sent by this node since it started
+# TYPE raft_node_rpc_sent gauge
+raft_node_rpc_sent{node="n1"} 2978.0
+raft_node_rpc_sent{node="n2"} 9.0
+raft_node_rpc_sent{node="n3"} 0.0
+# HELP raft_node_rpc_failed Failed RPCs since this node started
+# TYPE raft_node_rpc_failed gauge
+raft_node_rpc_failed{node="n1"} 12.0
+raft_node_rpc_failed{node="n2"} 5.0
+raft_node_rpc_failed{node="n3"} 0.0
+# HELP raft_node_elections_started Elections started since node start
+# TYPE raft_node_elections_started gauge
+raft_node_elections_started{node="n1"} 1.0
+raft_node_elections_started{node="n2"} 1.0
+raft_node_elections_started{node="n3"} 0.0
+# HELP raft_node_elections_won Elections won since node start
+# TYPE raft_node_elections_won gauge
+raft_node_elections_won{node="n1"} 1.0
+raft_node_elections_won{node="n2"} 1.0
+raft_node_elections_won{node="n3"} 0.0
+# HELP raft_node_snapshots_created Snapshots created since node start
+# TYPE raft_node_snapshots_created gauge
+raft_node_snapshots_created{node="n1"} 10.0
+raft_node_snapshots_created{node="n2"} 10.0
+raft_node_snapshots_created{node="n3"} 10.0
+# HELP raft_node_snapshots_installed Snapshots installed since node start
+# TYPE raft_node_snapshots_installed gauge
+raft_node_snapshots_installed{node="n1"} 0.0
+raft_node_snapshots_installed{node="n2"} 0.0
+raft_node_snapshots_installed{node="n3"} 0.0
+# HELP raft_node_client_write_failures Client writes failed since node start
+# TYPE raft_node_client_write_failures gauge
+raft_node_client_write_failures{node="n1"} 0.0
+raft_node_client_write_failures{node="n2"} 0.0
+raft_node_client_write_failures{node="n3"} 0.0
+# HELP raft_cluster_has_leader 1 when a leader is known
+# TYPE raft_cluster_has_leader gauge
+raft_cluster_has_leader 1.0
+# HELP raft_cluster_term Highest observed term
+# TYPE raft_cluster_term gauge
+raft_cluster_term 2.0
+# HELP raft_cluster_commit_index Leader commit index
+# TYPE raft_cluster_commit_index gauge
+raft_cluster_commit_index 1311.0
+# HELP raft_cluster_active_nodes Reachable nodes
+# TYPE raft_cluster_active_nodes gauge
+raft_cluster_active_nodes 3.0
+# HELP raft_cluster_quorum_size Majority size
+# TYPE raft_cluster_quorum_size gauge
+raft_cluster_quorum_size 2.0
+# HELP raft_cluster_committed_entries_per_second Leader commit-index growth per second; includes replicated no-op entries
+# TYPE raft_cluster_committed_entries_per_second gauge
+raft_cluster_committed_entries_per_second 0.0
+# HELP raft_cluster_write_latency_p95_ms P95 client write latency
+# TYPE raft_cluster_write_latency_p95_ms gauge
+raft_cluster_write_latency_p95_ms 0.0
+# HELP raft_cluster_replication_latency_ms Mean leader commit latency
+# TYPE raft_cluster_replication_latency_ms gauge
+raft_cluster_replication_latency_ms 0.0
+# HELP raft_cluster_availability_ratio Active / total nodes
+# TYPE raft_cluster_availability_ratio gauge
+raft_cluster_availability_ratio 1.0
+# HELP raft_cluster_last_election_ms Last observed election duration
+# TYPE raft_cluster_last_election_ms gauge
+raft_cluster_last_election_ms 18.0
+# HELP raft_cluster_network_latency_ms Mean inter-node RPC latency
+# TYPE raft_cluster_network_latency_ms gauge
+raft_cluster_network_latency_ms 2.97
+# HELP raft_client_successful_writes_total Client writes acknowledged since controller start
+# TYPE raft_client_successful_writes_total counter
+raft_client_successful_writes_total 1309.0
+# HELP raft_client_successful_writes_created Client writes acknowledged since controller start
+# TYPE raft_client_successful_writes_created gauge
+raft_client_successful_writes_created 1.793509881479137e+09
+# HELP raft_client_failed_writes_total Client writes that exhausted retries since controller start
+# TYPE raft_client_failed_writes_total counter
+raft_client_failed_writes_total 0.0
+# HELP raft_client_failed_writes_created Client writes that exhausted retries since controller start
+# TYPE raft_client_failed_writes_created gauge
+raft_client_failed_writes_created 1.7935098814791434e+09
+# HELP raft_network_forwarded_messages Messages forwarded by the network simulator since it started
+# TYPE raft_network_forwarded_messages gauge
+raft_network_forwarded_messages 2972.0
+# HELP raft_network_dropped_messages Messages dropped by the network simulator since it started
+# TYPE raft_network_dropped_messages gauge
+raft_network_dropped_messages 23.0
+# HELP raft_cluster_health 1 healthy, 0.5 degraded, 0 critical
+# TYPE raft_cluster_health gauge
+raft_cluster_health 1.0

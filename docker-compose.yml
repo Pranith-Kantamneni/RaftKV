@@ -1,0 +1,88 @@
+services:
+  controller:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.backend
+    image: raftkv-controller:1.0.0
+    container_name: raftkv-controller
+    environment:
+      DATA_DIR: /data
+      CLUSTER_SIZE: ${CLUSTER_SIZE:-3}
+      NODE_BASE_PORT: 7001
+      PROXY_BASE_PORT: 7101
+      AUTO_START: "true"
+      ELECTION_TIMEOUT_MIN: "0.8"
+      ELECTION_TIMEOUT_MAX: "1.5"
+      HEARTBEAT_INTERVAL: "0.2"
+      SNAPSHOT_THRESHOLD: "128"
+      LOG_LEVEL: info
+    ports:
+      # Node and proxy ports are loopback-only diagnostics. Clients should use the API.
+      - "127.0.0.1:8000:8000"
+      - "127.0.0.1:7001-7005:7001-7005"
+      - "127.0.0.1:7101-7105:7101-7105"
+    volumes:
+      - raft-data:/data
+    stop_grace_period: 20s
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8000/api/health', timeout=3).status == 200 else 1)"
+      interval: 10s
+      timeout: 4s
+      start_period: 25s
+      retries: 5
+    networks:
+      - raftkv
+
+  dashboard:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.frontend
+    image: raftkv-dashboard:1.0.0
+    container_name: raftkv-dashboard
+    ports:
+      - "${DASHBOARD_BIND:-127.0.0.1}:${DASHBOARD_PORT:-8080}:80"
+    depends_on:
+      controller:
+        condition: service_healthy
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - raftkv
+
+  prometheus:
+    image: prom/prometheus:v2.55.1
+    container_name: raftkv-prometheus
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.path=/prometheus
+    ports:
+      - "${PROMETHEUS_BIND:-127.0.0.1}:${PROMETHEUS_PORT:-9090}:9090"
+    volumes:
+      # `Z` relabels the bind mount for SELinux hosts (Fedora/RHEL). Without it the
+      # Prometheus container, which runs unprivileged, cannot read the config.
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro,Z
+      - prometheus-data:/prometheus
+    depends_on:
+      controller:
+        condition: service_healthy
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - raftkv
+
+volumes:
+  raft-data:
+  prometheus-data:
+
+networks:
+  raftkv:
+    driver: bridge

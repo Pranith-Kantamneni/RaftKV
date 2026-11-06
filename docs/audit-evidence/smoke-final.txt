@@ -1,0 +1,4 @@
+leader n1, term 10
+SET smoke:1793512365 committed at index 49 term 10
+GET smoke:1793512365 read_mode=read-index value matched
+converged: applied indexes {'n1': 49, 'n2': 49, 'n3': 49}

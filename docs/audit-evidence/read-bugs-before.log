@@ -1,0 +1,2 @@
+READ_WITH_LAGGING_APPLY {'key': 'k', 'value': 'old', 'exists': True, 'index': 1, 'commit_index': 5, 'term': 1, 'read_mode': 'leader-lease'} elapsed_s 1.001 STALE_READ
+READ_AFTER_STEPDOWN_DURING_AWAIT {'key': 'k', 'value': 'old', 'exists': True, 'index': 1, 'commit_index': 1, 'term': 3, 'read_mode': 'leader-lease'} role follower term 3 BUG

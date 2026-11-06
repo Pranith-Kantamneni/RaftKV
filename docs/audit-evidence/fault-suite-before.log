@@ -1,0 +1,331 @@
+SIGKILL n1 (pid 128486)
+{"scenario": "write_leader_crash", "passed": true, "error": null}
+SIGKILL n1 (pid 128622)
+{"scenario": "crash_after_commit", "passed": true, "error": null}
+SIGKILL n2 (pid 128685)
+{"scenario": "follower_recovery", "passed": true, "error": null}
+{"scenario": "partition_minority_3", "passed": true, "error": null}
+{"scenario": "partition_leader_minority_5", "passed": true, "error": null}
+{"scenario": "two_nodes_isolated", "passed": true, "error": null}
+SIGKILL n1 (pid 128878)
+SIGKILL n4 (pid 128881)
+{"scenario": "rapid_leader_failures", "passed": true, "error": null}
+{"scenario": "restart_all", "passed": true, "error": null}
+SIGKILL n2 (pid 128990)
+{"scenario": "stale_persisted_state", "passed": true, "error": null}
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/pranith/.local/lib/python3.14/site-packages/uvicorn/protocols/http/httptools_impl.py", line 422, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/pranith/.local/lib/python3.14/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/pranith/.local/lib/python3.14/site-packages/fastapi/applications.py", line 1163, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/pranith/.local/lib/python3.14/site-packages/starlette/applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/pranith/.local/lib/python3.14/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/home/pranith/.local/lib/python3.14/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/pranith/.local/lib/python3.14/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/pranith/.local/lib/python3.14/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/pranith/.local/lib/python3.14/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/pranith/.local/lib/python3.14/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/pranith/.local/lib/python3.14/site-packages/starlette/routing.py", line 670, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/pranith/.local/lib/python3.14/site-packages/fastapi/routing.py", line 2734, in app
+    await route.handle(scope, receive, send)
+  File "/home/pranith/.local/lib/python3.14/site-packages/fastapi/routing.py", line 1281, in handle
+    await super().handle(scope, receive, send)
+  File "/home/pranith/.local/lib/python3.14/site-packages/starlette/routing.py", line 280, in handle
+    await self.app(scope, receive, send)
+  File "/home/pranith/.local/lib/python3.14/site-packages/fastapi/routing.py", line 158, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/pranith/.local/lib/python3.14/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/pranith/.local/lib/python3.14/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/pranith/.local/lib/python3.14/site-packages/fastapi/routing.py", line 144, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/pranith/.local/lib/python3.14/site-packages/fastapi/routing.py", line 706, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/pranith/.local/lib/python3.14/site-packages/fastapi/routing.py", line 352, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/pranith/Desktop/projects/Raftkv-failure-simulations/backend/simulator/network.py", line 245, in proxy
+    body = await request.body()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/pranith/.local/lib/python3.14/site-packages/starlette/requests.py", line 257, in body
+    async for chunk in self.stream():
+        chunks.append(chunk)
+  File "/home/pranith/.local/lib/python3.14/site-packages/starlette/requests.py", line 251, in stream
+    raise ClientDisconnect()
+starlette.requests.ClientDisconnect
+{"scenario": "linearizability", "passed": true, "error": null}
+{
+  "results": [
+    {
+      "scenario": "write_leader_crash",
+      "cluster_size": 3,
+      "started": true,
+      "first_leader": "n1",
+      "new_leader": "n2",
+      "crash_election_s": 0.668,
+      "rejoin_s": 8.745,
+      "writes_success": 342,
+      "writes_failure": 3,
+      "errors": [
+        "no leader available",
+        "no leader available",
+        "no leader available"
+      ],
+      "missing_successful_keys": [],
+      "converged": true,
+      "consistency_passed": true,
+      "consistency_violations": 0,
+      "checks": {
+        "election_safety": {
+          "passed": true,
+          "checked": 32,
+          "violations": 0,
+          "skipped": 2
+        },
+        "leader_append_only": {
+          "passed": true,
+          "checked": 30,
+          "violations": 0,
+          "skipped": 2
+        },
+        "log_matching": {
+          "passed": true,
+          "checked": 82,
+          "violations": 0,
+          "skipped": 0
+        },
+        "leader_completeness": {
+          "passed": true,
+          "checked": 998,
+          "violations": 0,
+          "skipped": 2
+        },
+        "state_machine_safety": {
+          "passed": true,
+          "checked": 15478,
+          "violations": 0,
+          "skipped": 0
+        },
+        "commit_safety": {
+          "passed": true,
+          "checked": 93,
+          "violations": 0,
+          "skipped": 0
+        },
+        "client_ack_safety": {
+          "passed": false,
+          "checked": 0,
+          "violations": 0,
+          "skipped": 34
+        }
+      },
+      "error": null,
+      "passed": true
+    },
+    {
+      "scenario": "crash_after_commit",
+      "cluster_size": 3,
+      "started": true,
+      "committed_index": 2,
+      "old_leader": "n1",
+      "new_leader": "n3",
+      "value_on_new_leader": "durable",
+      "converged": true,
+      "error": null,
+      "passed": true
+    },
+    {
+      "scenario": "follower_recovery",
+      "cluster_size": 3,
+      "started": true,
+      "leader": "n1",
+      "follower": "n2",
+      "base_index": 2,
+      "during_index": 3,
+      "caught_up": true,
+      "value_on_recovered_follower": "2",
+      "error": null,
+      "passed": true
+    },
+    {
+      "scenario": "partition_minority_3",
+      "cluster_size": 3,
+      "started": true,
+      "old_leader": "n1",
+      "new_leader": "n3",
+      "new_committed_index": 4,
+      "minority_direct_write_status": 409,
+      "minority_direct_write_body": "{\"detail\":\"not leader\",\"leader\":null}",
+      "old_leader_read_status": 409,
+      "old_leader_read_value": null,
+      "minority_write_rejected": true,
+      "stale_read_observed": false,
+      "converged": true,
+      "values": {
+        "n1": "2",
+        "n2": "2",
+        "n3": "2"
+      },
+      "forbidden_values": {
+        "n1": null,
+        "n2": null,
+        "n3": null
+      },
+      "error": null,
+      "passed": true
+    },
+    {
+      "scenario": "partition_leader_minority_5",
+      "cluster_size": 5,
+      "started": true,
+      "leader": "n1",
+      "minority": [
+        "n1",
+        "n2"
+      ],
+      "majority": [
+        "n3",
+        "n4",
+        "n5"
+      ],
+      "new_leader": "n4",
+      "minority_write_status": 409,
+      "minority_write_rejected": true,
+      "converged": true,
+      "values": {
+        "n1": "2",
+        "n2": "2",
+        "n3": "2",
+        "n4": "2",
+        "n5": "2"
+      },
+      "error": null,
+      "passed": true
+    },
+    {
+      "scenario": "two_nodes_isolated",
+      "cluster_size": 5,
+      "started": true,
+      "isolated_group": [
+        "n4",
+        "n1"
+      ],
+      "majority_group": [
+        "n2",
+        "n3",
+        "n5"
+      ],
+      "new_leader": "n3",
+      "converged": true,
+      "values": {
+        "n1": "2",
+        "n2": "2",
+        "n3": "2",
+        "n4": "2",
+        "n5": "2"
+      },
+      "error": null,
+      "passed": true
+    },
+    {
+      "scenario": "rapid_leader_failures",
+      "cluster_size": 5,
+      "started": true,
+      "initial_leader": "n1",
+      "crashed": [
+        "n1",
+        "n4"
+      ],
+      "final_leader": "n3",
+      "committed_indexes": [
+        4,
+        6
+      ],
+      "survivor_values": {
+        "n2": null,
+        "n3": "2",
+        "n5": null
+      },
+      "converged": true,
+      "all_values": {
+        "n1": "2",
+        "n2": "2",
+        "n3": "2",
+        "n4": "2",
+        "n5": "2"
+      },
+      "error": null,
+      "passed": true
+    },
+    {
+      "scenario": "restart_all",
+      "cluster_size": 3,
+      "started": true,
+      "old_leader": "n1",
+      "new_leader": "n1",
+      "committed_index": 2,
+      "read": {
+        "key": "restart:all",
+        "value": "present",
+        "exists": true,
+        "index": 2,
+        "commit_index": 3,
+        "term": 2,
+        "read_mode": "leader-lease"
+      },
+      "converged": true,
+      "error": null,
+      "passed": true
+    },
+    {
+      "scenario": "stale_persisted_state",
+      "cluster_size": 3,
+      "started": true,
+      "leader": "n1",
+      "victim": "n2",
+      "base_index": 2,
+      "during_index": 3,
+      "converged": true,
+      "before_value": "old",
+      "during_value": "new",
+      "error": null,
+      "passed": true
+    },
+    {
+      "scenario": "linearizability",
+      "cluster_size": 3,
+      "started": true,
+      "writes": 16,
+      "reads": 36,
+      "errors": [],
+      "linearizable": true,
+      "detail": "linearizable under the committed write order",
+      "error": null,
+      "passed": true
+    }
+  ],
+  "passed": true
+}
